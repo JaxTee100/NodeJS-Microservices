@@ -7,7 +7,7 @@ const { rateLimit } = require('express-rate-limit');
 const {RedisStore} = require('rate-limit-redis');
 const logger = require('./utils/logger');
 const proxy = require('express-http-proxy');
-const errorHandler = require('./middleware/errorHandler');
+const errorHandler = require('./middleware/errorhandler')
 const { validateToken } = require('./middleware/auth-middleware');
 
 
@@ -138,7 +138,8 @@ app.use('/v1/search', validateToken, proxy(
 
 
 
-app.use(errorHandler);
+//erro handler here
+app.use(errorHandler)
 
 app.listen(PORT, () => {
     logger.info(`API Gateway listening on port ${PORT}`);
