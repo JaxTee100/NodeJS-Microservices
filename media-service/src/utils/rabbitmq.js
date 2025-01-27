@@ -9,14 +9,15 @@ const EXCHANGE_NAME = 'facebook_events'
 
 async function connectToRabbitMQ(){
     try {
-        connection = await amqp.connect(process.env.RABBITMQ_UR);
+        connection = await amqp.connect(process.env.RABBITMQ_URL);
+        console.log(process.env.RABBITMQ_URL)
         channel=await connection.createChannel();
 
         await channel.assertExchange(EXCHANGE_NAME, 'topic', {durable : false});
-        logger.info('Connected to rabbitmq');
+        logger.info(`connected to rabbitmq at ${process.env.RABBITMQ_URL}`);
         return channel;
     } catch (error) {
-        logger.error('Error connecting to rabbitmq')
+        logger.error(`Error connecting to rabbitmq ${process.env.RABBITMQ_URL}`)
     }
 }
 
