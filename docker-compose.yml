@@ -41,7 +41,7 @@ services:
       - rabbitmq
     environment:
       - REDIS_URL=redis://redis:6379
-      - RABBITMQ_URL=amgp://localhost:5672
+      - RABBITMQ_URL=amqp://rabbitmq:5672
 
   search-service:
     build: ./search-service

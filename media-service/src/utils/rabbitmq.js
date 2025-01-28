@@ -1,5 +1,8 @@
-const amqp = require('amqplib');
+const amqp = require('amqplib')
 const logger = require('./logger');
+
+
+
 
 let connection = null;
 let channel = null;
@@ -17,7 +20,7 @@ async function connectToRabbitMQ(){
         logger.info(`connected to rabbitmq at ${process.env.RABBITMQ_URL}`);
         return channel;
     } catch (error) {
-        logger.error(`Error connecting to rabbitmq ${process.env.RABBITMQ_URL}`)
+        logger.error(`Error connecting to rabbitmq ${process.env.RABBITMQ_URL}, error: ${error.message}`)
     }
 }
 

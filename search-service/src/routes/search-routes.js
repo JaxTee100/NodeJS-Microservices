@@ -1,5 +1,5 @@
 const express = require('express');
-const { authenticateRequest } = require('../../../media-service/src/middleware/auth-middleware');
+const { authenticateRequest } = require('../middleware/auth-middleware');
 const { searchPostController } = require('../controllers/search-controller');
 
 
